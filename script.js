@@ -1,16 +1,16 @@
 // Configurazione: Qui puoi inserire i 10 link diversi di Throne e i 10 CODICI SEGRETI per ogni immagine corrispondente!
 
 const galleryData = [
-    { id: 1, image: "assets/1.png", throneLink: "https://throne.com/tuo_profilo/item1", secretCode: "GATTO" },
-    { id: 2, image: "assets/2.png", throneLink: "https://throne.com/tuo_profilo/item2", secretCode: "LUNA" },
-    { id: 3, image: "assets/3.png", throneLink: "https://throne.com/tuo_profilo/item3", secretCode: "SOLE" },
-    { id: 4, image: "assets/4.png", throneLink: "https://throne.com/tuo_profilo/item4", secretCode: "STELLA" },
-    { id: 5, image: "assets/5.png", throneLink: "https://throne.com/tuo_profilo/item5", secretCode: "NOTTE" },
-    { id: 6, image: "assets/6.png", throneLink: "https://throne.com/tuo_profilo/item6", secretCode: "MARE" },
-    { id: 7, image: "assets/7.png", throneLink: "https://throne.com/tuo_profilo/item7", secretCode: "CIELO" },
-    { id: 8, image: "assets/8.png", throneLink: "https://throne.com/tuo_profilo/item8", secretCode: "FUOCO" },
-    { id: 9, image: "assets/9.png", throneLink: "https://throne.com/tuo_profilo/item9", secretCode: "NEVE" },
-    { id: 10, image: "assets/10.png", throneLink: "https://throne.com/tuo_profilo/item10", secretCode: "VENTO" }
+    { id: 1, image: "assets/1.png", throneLink: "https://throne.com/dahliastar/item/587CE7A9-BF83-43B3-881B-BB4C15E1D78A", secretCode: "WORSHIP" },
+    { id: 2, image: "assets/2.png", throneLink: "https://throne.com/dahliastar/item/587CE7A9-BF83-43B3-881B-BB4C15E1D78A", secretCode: "OBEY" },
+    { id: 3, image: "assets/3.png", throneLink: "https://throne.com/dahliastar/item/587CE7A9-BF83-43B3-881B-BB4C15E1D78A", secretCode: "LICK" },
+    { id: 4, image: "assets/4.png", throneLink: "https://throne.com/dahliastar/item/587CE7A9-BF83-43B3-881B-BB4C15E1D78A", secretCode: "BEG" },
+    { id: 5, image: "assets/5.png", throneLink: "https://throne.com/dahliastar/item/587CE7A9-BF83-43B3-881B-BB4C15E1D78A", secretCode: "LOSER" },
+    { id: 6, image: "assets/6.png", throneLink: "https://throne.com/dahliastar/item/587CE7A9-BF83-43B3-881B-BB4C15E1D78A", secretCode: "PATHETIC" },
+    { id: 7, image: "assets/7.png", throneLink: "https://throne.com/dahliastar/item/587CE7A9-BF83-43B3-881B-BB4C15E1D78A", secretCode: "PIG" },
+    { id: 8, image: "assets/8.png", throneLink: "https://throne.com/dahliastar/item/587CE7A9-BF83-43B3-881B-BB4C15E1D78A", secretCode: "TOY" },
+    { id: 9, image: "assets/9.png", throneLink: "https://throne.com/dahliastar/item/587CE7A9-BF83-43B3-881B-BB4C15E1D78A", secretCode: "PET" },
+    { id: 10, image: "assets/10.png", throneLink: "https://throne.com/dahliastar/item/587CE7A9-BF83-43B3-881B-BB4C15E1D78A", secretCode: "RUIN" }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
