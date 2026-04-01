@@ -7,10 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app-container">
+    
+    <!-- Schermata di Benvenuto (Gateway) -->
+    <div id="welcome-screen" class="welcome-container">
+        <div class="welcome-content">
+            <h1 class="glitch-text" data-text="RESTRICTED AREA">RESTRICTED AREA</h1>
+            <p>You are about to access the Premium Vault.</p>
+            <button id="enter-btn" class="enter-btn">ENTER THE VAULT</button>
+        </div>
+    </div>
+
+    <!-- App Principale (Nascosta all'inizio) -->
+    <div id="main-app" class="app-container" style="display: none; opacity: 0; transition: opacity 1s ease;">
         <header>
             <h1>The Vault</h1>
-            <p>Scroll to explore. Select an image and unlock.</p>
+            <p>Scroll to explore. Select an image to unlock via Throne.</p>
         </header>
 
         <main class="carousel-container">
@@ -23,6 +34,7 @@
             <button class="nav-btn next-btn" id="nextBtn">&gt;</button>
         </main>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>

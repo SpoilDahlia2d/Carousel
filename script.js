@@ -1,19 +1,48 @@
 // Configurazione: Qui puoi inserire i 10 link diversi di Throne e i 10 CODICI SEGRETI per ogni immagine corrispondente!
 
 const galleryData = [
-    { id: 1, image: "assets/1.png", throneLink: "https://throne.com/dahliastar/item/587CE7A9-BF83-43B3-881B-BB4C15E1D78A", secretCode: "WORSHIP" },
-    { id: 2, image: "assets/2.png", throneLink: "https://throne.com/dahliastar/item/587CE7A9-BF83-43B3-881B-BB4C15E1D78A", secretCode: "OBEY" },
-    { id: 3, image: "assets/3.png", throneLink: "https://throne.com/dahliastar/item/587CE7A9-BF83-43B3-881B-BB4C15E1D78A", secretCode: "LICK" },
-    { id: 4, image: "assets/4.png", throneLink: "https://throne.com/dahliastar/item/587CE7A9-BF83-43B3-881B-BB4C15E1D78A", secretCode: "BEG" },
-    { id: 5, image: "assets/5.png", throneLink: "https://throne.com/dahliastar/item/587CE7A9-BF83-43B3-881B-BB4C15E1D78A", secretCode: "LOSER" },
-    { id: 6, image: "assets/6.png", throneLink: "https://throne.com/dahliastar/item/587CE7A9-BF83-43B3-881B-BB4C15E1D78A", secretCode: "PATHETIC" },
-    { id: 7, image: "assets/7.png", throneLink: "https://throne.com/dahliastar/item/587CE7A9-BF83-43B3-881B-BB4C15E1D78A", secretCode: "PIG" },
-    { id: 8, image: "assets/8.png", throneLink: "https://throne.com/dahliastar/item/587CE7A9-BF83-43B3-881B-BB4C15E1D78A", secretCode: "TOY" },
-    { id: 9, image: "assets/9.png", throneLink: "https://throne.com/dahliastar/item/587CE7A9-BF83-43B3-881B-BB4C15E1D78A", secretCode: "PET" },
-    { id: 10, image: "assets/10.png", throneLink: "https://throne.com/dahliastar/item/587CE7A9-BF83-43B3-881B-BB4C15E1D78A", secretCode: "RUIN" }
+    { id: 1, image: "assets/1.png", throneLink: "https://throne.com/tuo_profilo/item1", secretCode: "GATTO" },
+    { id: 2, image: "assets/2.png", throneLink: "https://throne.com/tuo_profilo/item2", secretCode: "LUNA" },
+    { id: 3, image: "assets/3.png", throneLink: "https://throne.com/tuo_profilo/item3", secretCode: "SOLE" },
+    { id: 4, image: "assets/4.png", throneLink: "https://throne.com/tuo_profilo/item4", secretCode: "STELLA" },
+    { id: 5, image: "assets/5.png", throneLink: "https://throne.com/tuo_profilo/item5", secretCode: "NOTTE" },
+    { id: 6, image: "assets/6.png", throneLink: "https://throne.com/tuo_profilo/item6", secretCode: "MARE" },
+    { id: 7, image: "assets/7.png", throneLink: "https://throne.com/tuo_profilo/item7", secretCode: "CIELO" },
+    { id: 8, image: "assets/8.png", throneLink: "https://throne.com/tuo_profilo/item8", secretCode: "FUOCO" },
+    { id: 9, image: "assets/9.png", throneLink: "https://throne.com/tuo_profilo/item9", secretCode: "NEVE" },
+    { id: 10, image: "assets/10.png", throneLink: "https://throne.com/tuo_profilo/item10", secretCode: "VENTO" }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Audio Setup (Now acts as Background Audio)
+    const bgmSound = new Audio('assets/sound.mp3');
+    bgmSound.volume = 0.5; // Volume background track al 50%
+    bgmSound.loop = true; // Continua a suonare in loop per creare l'atmosfera
+
+    // Entry Gateway Logic
+    const welcomeScreen = document.getElementById('welcome-screen');
+    const mainApp = document.getElementById('main-app');
+    const enterBtn = document.getElementById('enter-btn');
+
+    if (enterBtn) {
+        enterBtn.addEventListener('click', () => {
+            // L'interazione dell'utente SBLOCCA il permesso audio del browser!
+            // Inizia a suonare l'audio:
+            bgmSound.play().catch(err => console.log("Audio play prevented:", err));
+            
+            // Fai sparire la schermata di benvenuto e mostra il carousel
+            welcomeScreen.classList.add('fade-out');
+            setTimeout(() => {
+                welcomeScreen.style.display = 'none';
+                mainApp.style.display = 'flex';
+                // Piccola animazione di fade-in
+                setTimeout(() => {
+                    mainApp.classList.add('visible');
+                }, 50);
+            }, 800);
+        });
+    }
+
     const carousel = document.getElementById('carousel');
     
     // Dynamically inject the 10 images into the DOM
@@ -39,17 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
         carousel.appendChild(div);
     });
 
-    // Audio Setup
-    const unlockSound = new Audio('assets/sound.mp3');
-    unlockSound.volume = 0.7; // Volume al 70%
-
     // Logic for showing the code input form
     const unlockBtns = document.querySelectorAll('.unlock-btn');
     unlockBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             const container = e.target.closest('.action-container');
-            e.target.style.display = 'none'; // hide unlock button
-            container.querySelector('.code-container').style.display = 'flex'; // show input form
+            e.target.style.display = 'none'; 
+            container.querySelector('.code-container').style.display = 'flex'; 
         });
     });
 
@@ -69,10 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (enteredCode.toUpperCase() === correctData.secretCode.toUpperCase()) {
                 // CODE IS CORRECT -> Trigger Unlock Animation
                 if (!itemDiv.classList.contains('unlocked') && !itemDiv.classList.contains('unlocking')) {
-                    // Play audio!
-                    unlockSound.currentTime = 0;
-                    unlockSound.play().catch(err => console.log("Browser prevented audio autoplay:", err));
-
                     // Hide the form and show a verifying message
                     btnEl.parentElement.innerHTML = '<span class="spinner"></span> Verifying...';
                     itemDiv.classList.add('unlocking');
@@ -86,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 // CODE IS WRONG
                 inputEl.classList.add('error');
-                setTimeout(() => inputEl.classList.remove('error'), 400); // Remove shaking class after animation
+                setTimeout(() => inputEl.classList.remove('error'), 400); 
                 inputEl.value = '';
                 inputEl.placeholder = 'Wrong Code!';
             }

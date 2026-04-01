@@ -23,14 +23,82 @@ body {
     background-image: radial-gradient(circle at 50% -20%, rgba(187,134,252,0.15) 0%, transparent 70%);
 }
 
+/* --- WELCOME SCREEN --- */
+.welcome-container {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.welcome-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.welcome-content h1 {
+    font-size: 3rem;
+    letter-spacing: 5px;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255,0,0,0.5);
+    margin-bottom: 0px;
+}
+
+.welcome-content p {
+    color: rgba(255,255,255,0.6);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.enter-btn {
+    padding: 16px 48px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: transparent;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.enter-btn:hover {
+    background: rgba(187,134,252,0.2);
+    border-color: var(--accent);
+    box-shadow: 0 0 30px var(--accent-glow);
+    transform: scale(1.05);
+}
+
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.1);
+}
+
+/* --- MAIN APP --- */
 .app-container {
     width: 100%;
     max-width: 1300px;
     padding: 2rem;
-    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2.5rem;
+}
+
+.app-container.visible {
+    opacity: 1 !important;
 }
 
 header {
@@ -172,7 +240,6 @@ header p {
     color: var(--accent);
 }
 
-/* Code Entry Form styling */
 .code-container {
     display: flex;
     flex-direction: column;
@@ -251,7 +318,6 @@ header p {
     text-decoration: underline;
 }
 
-/* PREMIUM UNLOCK ANIMATIONS */
 @keyframes intense-pulse {
     0% { transform: scale(1); box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
     50% { transform: scale(1.02); box-shadow: 0 0 60px var(--accent-glow), inset 0 0 30px rgba(187,134,252,0.3); }
@@ -277,7 +343,6 @@ header p {
     box-shadow: 0 0 20px var(--accent);
 }
 
-/* Unlocked State */
 .carousel-item.unlocked .vault-image {
     filter: blur(0) brightness(1.1);
     transform: scale(1);
@@ -291,7 +356,6 @@ header p {
     -webkit-backdrop-filter: blur(0);
 }
 
-/* Spinner Icon */
 .spinner {
     display: inline-block;
     width: 16px;
